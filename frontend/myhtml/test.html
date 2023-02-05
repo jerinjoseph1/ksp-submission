@@ -1,0 +1,100 @@
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4">Search <span class="text-muted fw-light">in Police databse & ICJRS</span></h4>
+    <form action="tables.html" id="serachPerson" method="GET">
+        <div class="row" style="justify-content: center;">
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <div class="card-body" style="display:flex;">
+                        <div class="input-group input-group-merge">
+                            <span class="input-group-text" id="basic-addon-search31" style="border: none;"><i class="bx bx-search"></i></span>
+                            <input
+                              id="keyword"
+                              name="keyword"
+                              value=""
+                              style="border:none; color:#3e3e3e; font-size: 1rem;"
+                              type="text"
+                              class="form-control rm-focus"
+                              placeholder="Search..."
+                              aria-label="Search..."
+                              aria-describedby="basic-addon-search31"
+                            />
+                        </div>
+                        <select class="form-select rm-focus"
+                            id="key"
+                            name="key"
+                            style="font-weight: 600; color:#3e3e3e; width: 30%; border: none;">
+                            <option selected value="Person_Name">Person_Name</option>
+                            <option value="Age">Age</option>
+                            <option value="AgeWhileOpening">AgeWhileOpening</option>
+                            <option value="Arr_ID">Arr_ID</option>
+                            <option value="Arrest_Date">Arrest_Date</option>
+                            <option value="Crime_No">Crime_No</option>
+                            <option value="DEDT">DEDT</option>
+                            <option value="District_Name">District_Name</option>
+                            <option value="FIRNo">FIRNo</option>
+                            <option value="FIR_Date">FIR_Date</option>
+                            <option value="FIR_ID">FIR_ID</option>
+                            <option value="Father_Name">Father_Name</option>
+                            <option value="Gender">Gender</option>
+                            <option value="Major_Head">Major_Head</option>
+                            <option value="Minor_Head">Minor_Head</option>
+                            <option value="Name">Name</option>
+                            <option value="PS_Name">PS_Name</option>
+                            <option value="Perm_Address1">Perm_Address1</option>
+                            <option value="PersonStatus">PersonStatus</option>
+                            <option value="Person_No">Person_No</option>
+                            <option value="Pres_Address1">Pres_Address1</option>
+                            <option value="State">State</option>
+                            <option value="Unit_ID">Unit_ID</option>
+                        </select>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="justify-content: center;">
+            <div class="col-md-8" style="display: flex; justify-content: center; align-items: center;">
+                <small class="text-muted fw-semibold">Search in</small>
+                <div class="form-check" style="margin: 0 1rem;">
+                    <input
+                      name="location"
+                      class="form-check-input"
+                      type="radio"
+                      value="state"
+                      id="defaultRadio1"
+                    />
+                    <label class="form-check-label" for="defaultRadio1"> State database </label>
+                </div>
+
+                <div class="form-check">
+                    <input
+                      name="location"
+                      class="form-check-input"
+                      type="radio"
+                      value="icjrs"
+                      id="defaultRadio2"
+                    />
+                    <label class="form-check-label" for="defaultRadio2"> ICJRS database</label>
+                </div>
+
+                <div class="form-check" style="margin: 0 1rem;">
+                    <input
+                      name="location"
+                      class="form-check-input"
+                      type="radio"
+                      value="both"
+                      id="defaultRadio3"
+                      checked
+                    />
+                    <label class="form-check-label" for="defaultRadio2"> Both </label>
+                </div>
+
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="d-grid gap-2 col-lg-6 mx-auto">
+              <button class="btn btn-primary btn-lg" type="submit">Search records</button>
+            </div>
+        </div>
+    </form> 
+</div>
