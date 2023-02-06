@@ -4,6 +4,7 @@ const cors = require('cors');
 require('dotenv').config();
 const mongoose = require('mongoose');
 const multer  = require('multer');
+var axios = require('axios');
 
 const app = express();
 var ObjectID = require('mongodb').ObjectId;
@@ -28,7 +29,7 @@ app.listen(process.env.PORT, () => {
 });
 
 
-app.post("/findPerson", upload.fields([{name:"Photo_Full_front",maxCount:1},{name:"Fingerprint",maxCount:1}]), async (req, res) => {
+app.post("/findPerson", upload.fields([{name:"Photo_Full_front",maxCount:1},{name:"image",maxCount:1}]), async (req, res) => {
 
     console.log(req.body)
     console.log(req.files)
@@ -52,7 +53,6 @@ app.post("/findPerson", upload.fields([{name:"Photo_Full_front",maxCount:1},{nam
             $and:[query]
         })
 
-        console.log(stateResult)
 
         if (stateResult.length==0) {
             console.log("here")
@@ -84,3 +84,44 @@ app.get('/getPerson/:id', async(req,res)=>{
         return res.json({status:200,result:result}).end()  
      }) 
 })
+
+app.get('/getUsingFinger/:id', async(req,res)=>{
+  console.log(req.params.id)
+  statePoliceModel.find({'Fingerprint':req.params.id}, function(err,result){
+     if(err)
+         return res.json({status:500}).end()
+      console.log(result)
+      if(!result)
+        return res.json({ status: 404, message: "No data found" }).end()
+     return res.json({status:200,result:result}).end()  
+  }) 
+})
+
+
+// app.post("/file", upload.fields([{name:"Photo_Full_front",maxCount:1},{name:"Fingerprint",maxCount:1}]), async (req, res) => {
+//     var data = req.form();
+
+
+//     console.log(req.fields)
+//     console.log(req.files)
+//     data.append('image', req.files.Fingerprint);
+    
+//     var config = {
+//       method: 'post',
+//       url: 'http://35.78.91.151:8080/matchFingerPrint',
+//       headers: { 
+//         ...data.getHeaders()
+//       },
+//       data : data
+//     };
+    
+//     axios(config)
+//     .then(function (response) {
+
+//       console.log(JSON.stringify(response.data));
+//     })
+//     .catch(function (error) {
+//       console.log(error);
+//     });
+    
+// })

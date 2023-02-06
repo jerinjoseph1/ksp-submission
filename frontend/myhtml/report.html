@@ -195,22 +195,22 @@
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
+              <button type="button" id="download" class="btn btn-primary mb-3">Download pdf</button>
               <div class="card mb-4">
                 <h5 class="card-header">Basic Details</h5>
-                <div class="card-body">
+                <div class="card-body" id="ignore">
                   <div class="d-flex align-items-start align-items-sm-center gap-4">
                     <img
-                      src="../assets/img/avatars/1.png"
+                      src="../assets/img/avatars/Unknown.jpeg"
                       alt="user-img"
                       class="d-block rounded"
                       height="100"
-                      width="100"
                       id="personPhoto"
                     />
                   </div>
                 </div>
                 <hr class="my-0" />
-                <div class="card-body">
+                <div class="card-body" id="area">
                     <div class="row">
                       <div class="mb-3 col-md-6">
                         <label class="form-label">Person Name</label>
@@ -329,6 +329,16 @@
     <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.2.13/jspdf.plugin.autotable.min.js"></script> -->
+    <!-- <script src="../assets/js/jspdf.js"></script> -->
+    <!-- <script src="../assets/js/autotable.js"></script> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
+
+
 
     <script src="../assets/vendor/js/menu.js"></script>
     <script src="../assets/js/unify-report.js"></script>

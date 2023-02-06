@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    let array1 = []
     var getParams = function (url) {
         var params = {};
         var parser = document.createElement('a');
@@ -22,7 +22,7 @@ $(document).ready(function () {
         encode: true,
     }).done(function (data) {
         console.log(data);
-
+        array1 = data.result
         $('#personName').html(data.result.Person_Name)
         $('#fatherName').html(data.result.Father_Name)
         $('#address').html(data.result.Pres_Address1)
@@ -60,7 +60,12 @@ $(document).ready(function () {
     });
 
     const firebaseConfig = {
-
+        apiKey: "AIzaSyBYjL5P6T2aR1IfuYNzkBAbNowMMPSnUGM",
+        authDomain: "unify-a8d38.firebaseapp.com",
+        projectId: "unify-a8d38",
+        storageBucket: "unify-a8d38.appspot.com",
+        messagingSenderId: "440949840725",
+        appId: "1:440949840725:web:ea64bf9ac4c9ba25cc2ddc"
       };
     
       // Initialize Firebase
@@ -68,5 +73,47 @@ $(document).ready(function () {
       const storage = firebase.storage()
       const storageRef = firebase.storage().ref();
 
+      
+      var doc = new jsPDF();
+        var specialElementHandlers = {
+
+            '#ignore': function (element, renderer) {
+                return true;
+            }
+
+        };
+
+
+        $('#download').click(function () {
+
+            doc.fromHTML($('#area').html(), 15, 15, {
+                'width': 180,
+                    'elementHandlers': specialElementHandlers
+            });
+            doc.save('report.pdf');
+        });
+
+
+    // let columns = [
+    //     {title:"Person_Name", dataKey:"Person_Name"},
+    //     {title:"Father_Name", dataKey:"Father_Name"},
+    //     {title:"Pres_Address1", dataKey:"Pres_Address1"},
+    //     {title:"Perm_Address1", dataKey:"Perm_Address1"},        
+    //     {title:"Age", dataKey:"Age"},
+    // ]
+
+    // $("#download").click(function(){
+
+    //     const doc = new jsPDF('p', 'pt');
+    //     autoTable(doc,{columns:columns,body:array1,
+    //         theme: "grid"}
+    //     );
+
+    //     doc.setFontSize(10);
+    //     doc.setFont("helvetica", "bold");
+
+    //     doc.autoPrint({variant: 'non-conform'});
+    //     doc.save('report');
+    // })
 
 })

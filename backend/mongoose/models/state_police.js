@@ -14,8 +14,16 @@ const dbSchema = new mongoose.Schema({
   Gender: String,
   AgeWhileOpening: Number,
   Age: Number,
-  Pres_Address1: String,
-  Perm_Address1: String,
+  Pres_Address1: {
+    type:String,
+    default: ' '
+
+  },
+  Perm_Address1: {
+    type:String,
+    default: ' '
+
+  },
   PersonStatus: String,
   Name: String,
   Major_Head: String,
@@ -25,8 +33,16 @@ const dbSchema = new mongoose.Schema({
   Unit_ID: Number,
   FIR_ID: Number,
   DEDT: String,
-  Photo_Full_front: String,
-  Fingerprint:String
+  Photo_Full_front:{
+    type:String,
+    default: ' '
+
+  },
+  Fingerprint:{
+    type:String,
+    default: ' '
+
+  }
 },{ collection: 'state_police'});
   
 const statePoliceModel = mongoose.model('state_police', dbSchema);
