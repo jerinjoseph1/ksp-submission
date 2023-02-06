@@ -60,12 +60,7 @@ $(document).ready(function () {
     });
 
     const firebaseConfig = {
-        apiKey: "AIzaSyBYjL5P6T2aR1IfuYNzkBAbNowMMPSnUGM",
-        authDomain: "unify-a8d38.firebaseapp.com",
-        projectId: "unify-a8d38",
-        storageBucket: "unify-a8d38.appspot.com",
-        messagingSenderId: "440949840725",
-        appId: "1:440949840725:web:ea64bf9ac4c9ba25cc2ddc"
+
       };
     
       // Initialize Firebase
